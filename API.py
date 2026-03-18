@@ -8,9 +8,9 @@ app = FastAPI(
 )
 
 # Load models
-reg_model     = joblib.load('best_model.pkl')
-cluster_model = joblib.load('kmeans_model.pkl')
-scaler        = joblib.load('scaler.pkl')
+reg_model     = joblib.load('./Models/best_model.pkl')
+cluster_model = joblib.load('./Models/kmeans_model.pkl')
+scaler        = joblib.load('./Models/scaler.pkl')
 
 @app.post("/predict", tags=["Prediction"])    
 def predict(a: float, b: float):
