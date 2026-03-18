@@ -21,7 +21,6 @@ def predict(a: float, b: float):
 @app.get("/classe", tags=["Clustering"])
 def get_classe(a: float, b: float, y: float):
     """ Determine the cluster class of (A, B, Y) """
-    # Scale [A, B] before clustering (KMeans was trained on scaled data)
     ab_scaled = scaler.transform([[a, b]])
     cluster = cluster_model.predict(ab_scaled)[0]
     return {"A": a, "B": b, "Y": y, "classe": int(cluster)}
